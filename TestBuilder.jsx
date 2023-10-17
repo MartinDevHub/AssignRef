@@ -77,7 +77,7 @@ function TestBuilder() {
     });
   };
   const onGetTestIdError = (err) => {
-    toastr.error("error testId");
+    toastr.error("error testId", err);
   };
 
   const handleSubmit = (values) => {
@@ -115,11 +115,11 @@ function TestBuilder() {
   };
 
   const onGetQAError = (err) => {
-    toastr.error("Question and answer submission error");
+    toastr.error("Question and answer submission error", err);
   };
 
   const handleEditQuestion = (question) => {
-    const onGetQuestionsSuccess = (response) => {
+    const onGetQuestionsSuccess = () => {
       setFormData((prevState) => {
         const newState = { ...prevState };
 
@@ -138,7 +138,7 @@ function TestBuilder() {
     };
 
     const onGetQuestionsError = (err) => {
-      toastr.error("Unable to get questions", "Bad Request");
+      toastr.error("Unable to get questions", "Bad Request", err);
     };
 
     questionService
@@ -259,7 +259,7 @@ function TestBuilder() {
   };
 
   const onUpdateQuestionContentError = (err) => {
-    toastr.error("Question content was not updated", "Bad Request");
+    toastr.error("Question content was not updated", "Bad Request", err);
   };
 
   const onCheckboxChanged = (index, values) => {
@@ -338,7 +338,7 @@ function TestBuilder() {
   };
 
   const onDeleteQuestionError = (err) => {
-    toastr.error("Question was not deleted", "Bad Request");
+    toastr.error("Question was not deleted", "Bad Request", err);
   };
 
   const onDragEnd = (result) => {
